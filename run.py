@@ -1,6 +1,6 @@
 from simclr import SimCLR
 import yaml
-from data_aug.dataset_wrapper import DataSetWrapper
+from data_aug.facemask_dataset_wrapper import DataSetWrapper
 
 
 def main():

@@ -6,6 +6,8 @@ from loss.nt_xent import NTXentLoss
 import os
 import shutil
 import sys
+from tqdm import tqdm
+
 
 apex_support = False
 try:
@@ -83,7 +85,7 @@ class SimCLR(object):
         valid_n_iter = 0
         best_valid_loss = np.inf
 
-        for epoch_counter in range(self.config['epochs']):
+        for epoch_counter in tqdm(range(self.config['epochs'])):
             for (xis, xjs), _ in train_loader:
                 optimizer.zero_grad()
 

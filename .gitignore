@@ -1,0 +1,14 @@
+
+data/
+
+runs/
+
+stl10_runs/
+
+.ipynb_checkpoints/
+
+data_aug/__pycache__/
+
+__pycache__/
+
+.vscode/
