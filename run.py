@@ -1,8 +1,9 @@
 from simclr import SimCLR
 import yaml
 # from data_aug.facemask_dataset_wrapper import DataSetWrapper
-from data_aug.lp_dataset_wrapper import DataSetWrapper
-
+# from data_aug.lp_dataset_wrapper import DataSetWrapper
+# from data_aug.oilpalm_dataset_wrapper import DataSetWrapper
+from data_aug.amazon_dataset_wrapper import DataSetWrapper
 
 def main():
     config = yaml.load(open("config.yaml", "r"), Loader=yaml.FullLoader)

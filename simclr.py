@@ -7,6 +7,7 @@ import os
 import shutil
 import sys
 from tqdm import tqdm
+from torchsummary import summary
 
 
 apex_support = False
@@ -66,7 +67,11 @@ class SimCLR(object):
         model = ResNetSimCLR(**self.config["model"]).to(self.device)
         model = self._load_pre_trained_weights(model)
 
-        optimizer = torch.optim.Adam(model.parameters(), 3e-4, weight_decay=eval(self.config['weight_decay']))
+        summary(model, (3, 128, 128))
+        # for parameter in model.parameters():
+        #     print(parameter)
+
+        optimizer = torch.optim.Adam(model.parameters(), 1e-4, weight_decay=eval(self.config['weight_decay']))
 
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=len(train_loader), eta_min=0,
                                                                last_epoch=-1)

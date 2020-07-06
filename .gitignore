@@ -12,3 +12,21 @@ data_aug/__pycache__/
 __pycache__/
 
 .vscode/
+
+lp_runs/
+
+experiments/results/
+
+experiments/weights/
+
+*.pth
+
+*.png
+
+*.model
+
+*.html
+
+runs_oilpalm/
+
+runs_backup/
