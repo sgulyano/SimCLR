@@ -22,16 +22,16 @@ print("Using device:", device)
 
 ## User Param
 # Amazon
-# args = {'dataset':'amazon'}
-# args = {'dataset':'amazon',
-#         'folder_name':'/home/yoyo/Desktop/SimCLR/runs/amazon_Jul05_23-00-54_iter200_yoyo',
-#         }
-# Oil Palm
-args = {'dataset':'oilpalm',
-        'folder_name':'/home/yoyo/Desktop/SimCLR/runs_oilpalm/Jul05_21-43-21_iter200_lr1e-4_yoyo',
+args = {'dataset':'amazon',
+        'folder_name':'/home/yoyo/Desktop/SimCLR/runs/amazon_Jul05_23-00-54_iter200_yoyo',
         }
+# # Oil Palm
+# args = {'dataset':'oilpalm',
+#         'folder_name':'/home/yoyo/Desktop/SimCLR/runs_oilpalm/Jul05_21-43-21_iter200_lr1e-4_yoyo',
+#         }
 
-pickle_file = '/home/yoyo/Desktop/SimCLR/experiments/results/oilpalm_eval10.pkl'
+args['dataset'] = 'oilpalm'
+pickle_file = '/home/yoyo/Desktop/SimCLR/experiments/results/oilpalm_simclr_transferfromamazon_eval00.pkl'
 
 DEBUG = False
 
@@ -67,11 +67,11 @@ def _load_data(prefix="train", img_size=128):
 
 X_train, y_train = _load_data("train")
 
-X_train_unlbl, y_train_unlbl = _load_data("unlabeled")
-n = X_train_unlbl.shape[0]
-n_spl = int(n*1.0)
-X_train = np.concatenate((X_train, X_train_unlbl[:n_spl]))
-y_train = np.concatenate((y_train, y_train_unlbl[:n_spl]))
+# X_train_unlbl, y_train_unlbl = _load_data("unlabeled")
+# n = X_train_unlbl.shape[0]
+# n_spl = int(n*1.0)
+# X_train = np.concatenate((X_train, X_train_unlbl[:n_spl]))
+# y_train = np.concatenate((y_train, y_train_unlbl[:n_spl]))
 
 if DEBUG:
     fig, axs = plt.subplots(nrows=2, ncols=6, constrained_layout=False, figsize=(12,4))
